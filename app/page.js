@@ -11,7 +11,7 @@ import Welcome from './_components/Section/welcome-section/Welcome';
 
 export default function Home() {
 	return (
-		<main className='container'>
+		<main>
 			<HeroSection />
 			<Welcome />
 			<Menu />

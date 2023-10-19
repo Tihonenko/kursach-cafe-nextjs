@@ -4,6 +4,7 @@ const initialState = {
 	data: {
 		coffee: {
 			name: 'Coffee',
+			id: 1,
 			types: [
 				{
 					img: '/coffee/americano.jpg',
@@ -29,6 +30,7 @@ const initialState = {
 		},
 		tea: {
 			name: 'Tea',
+			id: 2,
 			types: [
 				{
 					name: 'Black tea',
@@ -45,17 +47,29 @@ const initialState = {
 			],
 		},
 	},
+	selectedDrink: null,
 };
 
 export const MenuSlice = createSlice({
 	name: 'menu',
 	initialState,
 	reducers: {
-		coffeeTypes(state, action) {
-			state.data = state.data.coffee;
-		},
-		teaTypes(state, action) {
-			state.data = action.data.tea;
+		// coffeeTypes(state, action) {
+		// 	state.data = state.data.coffee;
+		// },
+		// teaTypes(state, action) {
+		// 	state.data = action.data.tea;
+		// },
+		selectDrink: (state, action) => {
+			switch (action.payload) {
+				case 'tea':
+					state.selectedDrink = state.data.tea;
+
+					break;
+				case 'coffee':
+					state.selectedDrink = state.data.coffee;
+					break;
+			}
 		},
 	},
 	extraReducers: {},
@@ -84,6 +98,6 @@ export const MenuSlice = createSlice({
 // MenuSlice.actions.coffeeTypes = coffeeTypesAction;
 // MenuSlice.actions.teaTypes = teaTypesAction;
 
-export const { coffeeTypes } = MenuSlice.actions;
+export const { coffeeTypes, selectDrink } = MenuSlice.actions;
 
 export const Menu = MenuSlice.reducer;

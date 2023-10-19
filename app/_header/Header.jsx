@@ -1,15 +1,9 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
 import React, { useState } from 'react';
 
-import {
-	ArrowDownIcon,
-	ChevronDownIcon,
-	CloseIcon,
-	HamburgerIcon,
-} from '@/components/Proxy/proxy-library';
+import { ChevronDownIcon } from '@/components/Proxy/proxy-library';
 
 import useMediaQuery from '../hooks/useMediaQuery';
 

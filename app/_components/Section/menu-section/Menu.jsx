@@ -17,7 +17,7 @@ const Menu = () => {
 			<h2 className='text-left'>Menu</h2>
 			<div className={styles.section}>
 				{coffee.types.map((type) => (
-					<div key={type.name} className=''>
+					<div key={type.name}>
 						<div className={styles.img_container}>
 							<Image
 								src={type.img}
