@@ -33,14 +33,17 @@ const initialState = {
 			id: 2,
 			types: [
 				{
+					img: '/tea/black-tea.jpg',
 					name: 'Black tea',
 					price: 7.99,
 				},
 				{
+					img: '/tea/green-tea.jpg',
 					name: 'Green tea',
 					price: 7.99,
 				},
 				{
+					img: '/tea/milk-tea.jpg',
 					name: 'Milk tea',
 					price: 7.99,
 				},
@@ -68,6 +71,9 @@ export const MenuSlice = createSlice({
 					break;
 				case 'coffee':
 					state.selectedDrink = state.data.coffee;
+					break;
+				default:
+					state.selectedDrink = null;
 					break;
 			}
 		},
