@@ -1,5 +1,6 @@
 import { createAction, createSlice } from '@reduxjs/toolkit';
 
+
 const initialState = {
 	data: {
 		coffee: {
@@ -49,8 +50,71 @@ const initialState = {
 				},
 			],
 		},
+		cocktails: {
+			name: 'Cocktails',
+			id: 3,
+			types: [
+				{
+					img: '/cocktails/mojito.jpg',
+					name: 'Mojito',
+					price: 10.99,
+				},
+				{
+					img: '/cocktails/pina-colada.jpg',
+					name: 'Pina Colada',
+					price: 11.99,
+				},
+				{
+					img: '/cocktails/margarita.jpg',
+					name: 'Margarita',
+					price: 9.99,
+				},
+			],
+		},
+		sandwiches: {
+			name: 'Sandwiches',
+			id: 4,
+			types: [
+				{
+					img: '/sandwiches/sandwich.jpg',
+					name: 'Club Sandwich',
+					price: 12.99,
+				},
+				{
+					img: '/sandwiches/simple-sandwich.jpg',
+					name: 'Simple Sandwich',
+					price: 8.99,
+				},
+				{
+					img: '/sandwiches/reuben-sandwich.jpg',
+					name: 'Reuben Sandwich',
+					price: 11.99,
+				},
+			],
+		},
+		pastries: {
+			name: 'Pastries',
+			id: 5,
+			types: [
+				{
+					img: '/pastries/croissant.jpg',
+					name: 'Croissant',
+					price: 3.99,
+				},
+				{
+					img: '/pastries/eclair.jpg',
+					name: 'Eclair',
+					price: 4.99,
+				},
+				{
+					img: '/pastries/tiramisu.jpg',
+					name: 'Tiramisu',
+					price: 5.99,
+				},
+			],
+		},
 	},
-	selectedDrink: null,
+	selectedMenu: null,
 };
 
 export const MenuSlice = createSlice({
@@ -63,17 +127,25 @@ export const MenuSlice = createSlice({
 		// teaTypes(state, action) {
 		// 	state.data = action.data.tea;
 		// },
-		selectDrink: (state, action) => {
+		selectMenu: (state, action) => {
 			switch (action.payload) {
 				case 'tea':
-					state.selectedDrink = state.data.tea;
-
+					state.selectedMenu = state.data.tea;
 					break;
 				case 'coffee':
-					state.selectedDrink = state.data.coffee;
+					state.selectedMenu = state.data.coffee;
+					break;
+				case 'coctail':
+					state.selectedMenu = state.data.cocktails;
+					break;
+				case 'sandwiches':
+					state.selectedMenu = state.data.sandwiches;
+					break;
+				case 'pastries':
+					state.selectedMenu = state.data.pastries;
 					break;
 				default:
-					state.selectedDrink = null;
+					state.selectedMenu = null;
 					break;
 			}
 		},
@@ -104,6 +176,6 @@ export const MenuSlice = createSlice({
 // MenuSlice.actions.coffeeTypes = coffeeTypesAction;
 // MenuSlice.actions.teaTypes = teaTypesAction;
 
-export const { coffeeTypes, selectDrink } = MenuSlice.actions;
+export const { coffeeTypes, selectMenu } = MenuSlice.actions;
 
 export const Menu = MenuSlice.reducer;

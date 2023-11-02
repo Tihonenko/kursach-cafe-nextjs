@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useSelector } from 'react-redux';
 
 import LinkButton from '@/UI/LinkButton';
@@ -10,7 +9,7 @@ import styles from './menu.module.scss';
 
 const Menu = () => {
 	const coffee = useSelector((state) => state.menu.data.coffee);
-	// console.log(coffee);
+	//console.log(coffee);
 
 	return (
 		<section className='container mt-44'>

@@ -1,6 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 import { ChevronDownIcon } from '@/components/Proxy/proxy-library';
@@ -23,7 +24,7 @@ const navData = [
 		path: 'about',
 	},
 	{
-		name: 'Carrers',
+		name: 'Careers',
 		path: 'work',
 	},
 	{
@@ -106,7 +107,9 @@ const Header = () => {
 		<header className='fixed z-10 w-full bg-secondaryBrown py-3'>
 			<div className='container grid grid-cols-4'>
 				<div className='col-start-1 '>
-					<h2 className='text-left font-main text-4xl'>Cosy</h2>
+					<Link href='/'>
+						<h2 className='text-left font-main text-4xl'>Cosy</h2>
+					</Link>
 				</div>
 				{isAboveSmallQuery ? (
 					<nav className='col-span-3 hidden w-full place-self-center md:block'>

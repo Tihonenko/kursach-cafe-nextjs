@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import MenuCard from '../../MenuCard/MenuCard';
 import Loading from '../../loading';
 
-import { selectDrink } from '@/redux/slices/MenuSlice';
+import { selectMenu } from '@/redux/slices/MenuSlice';
 
 const HeroMenu = () => {
 	const searchParams = useSearchParams();
@@ -15,20 +15,21 @@ const HeroMenu = () => {
 	const selectsEat = searchParams.get('eat');
 	const dispatch = useDispatch();
 
-	const drink = useSelector((state) => state.menu.selectedDrink);
+	const menu = useSelector((state) => state.menu.selectedMenu);
 
 	useEffect(() => {
-		dispatch(selectDrink(selectsDrink));
-	}, [selectDrink, selectsDrink]);
+		if (!selectsEat) dispatch(selectMenu(selectsDrink));
+		if (!selectsDrink) dispatch(selectMenu(selectsEat));
+	}, [selectMenu, selectsDrink, selectsEat]);
 
 	return (
 		<Suspense fallback={<Loading />}>
 			<div className='mt-10 grid grid-cols-1 place-items-center gap-x-5 gap-y-10 md:grid-cols-2'>
-				{drink === 0 ? (
+				{menu === 0 ? (
 					<h3>Not found</h3>
 				) : (
 					<>
-						{drink?.types?.map((type, idx) => (
+						{menu?.types?.map((type, idx) => (
 							<MenuCard key={idx} type={type} />
 						))}
 					</>

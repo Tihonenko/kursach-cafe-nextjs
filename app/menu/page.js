@@ -29,17 +29,20 @@ export default function Home() {
 	const [eatOpen, setEatOpen] = useState(false);
 
 	useEffect(() => {
-		router.push(`?drink=${''}`);
+		router.push(`?drink=${'tea'}`);
 	}, []);
 
-	const drinksHandler = (drink) => {
-		router.push(`?drink=${drink}`);
+	const drinksHandler = (drink, eat) => {
+		router.push(`?drink=${drink}&eat=${eat}`);
+		// router.push(`?eat=${eat}`);
 	};
 
 	return (
 		<main>
 			<section className='container pt-20'>
-				<h1 className='heading-large text-left'>MENU</h1>
+				<h1 className='heading-large border-b-[2px] border-mainBlack text-left'>
+					MENU
+				</h1>
 
 				<div className='grid grid-cols-4'>
 					<div className='grid grid-cols-4 justify-items-start gap-28'>
@@ -63,17 +66,19 @@ export default function Home() {
 								animate={drinksOpen ? 'open' : 'close'}
 							>
 								<motion.li>
-									<button onClick={() => drinksHandler('tea')}>
+									<button onClick={() => drinksHandler('tea', '')}>
 										TEA
 									</button>
 								</motion.li>
 								<motion.li>
-									<button onClick={() => drinksHandler('coffee')}>
+									<button onClick={() => drinksHandler('coffee', '')}>
 										COFFEE
 									</button>
 								</motion.li>
 								<motion.li>
-									<button>COCTAIL</button>
+									<button onClick={() => drinksHandler('coctail', '')}>
+										COCTAIL
+									</button>
 								</motion.li>
 							</motion.ul>
 						</div>
@@ -98,13 +103,18 @@ export default function Home() {
 								animate={eatOpen ? 'open' : 'close'}
 							>
 								<motion.li>
-									<button>TEA</button>
+									<button
+										onClick={() => drinksHandler('', 'sandwiches')}
+									>
+										Sandwiches
+									</button>
 								</motion.li>
 								<motion.li>
-									<button>COFFEE</button>
-								</motion.li>
-								<motion.li>
-									<button>COCTAIL</button>
+									<button
+										onClick={() => drinksHandler('', 'pastries')}
+									>
+										Pastries
+									</button>
 								</motion.li>
 							</motion.ul>
 						</div>

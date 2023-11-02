@@ -8,7 +8,7 @@
 	}
 
 	.heading-large {
-		@apply font-main text-3xl md:text-6xl xl:text-9xl;
+		@apply font-main text-4xl md:text-6xl xl:text-9xl;
 	}
 
 	.heading-medium {

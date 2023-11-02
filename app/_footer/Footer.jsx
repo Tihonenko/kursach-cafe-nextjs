@@ -7,6 +7,23 @@ const Footer = () => {
 		<footer className='mt-52'>
 			<div className={styles.content}>
 				<div>
+					<h3 className={styles.content_heading}>Location</h3>
+					<ul className={styles.content_list}>
+						<li>
+							<Link href='/'>Minsk</Link>
+						</li>
+						<li>
+							<Link href='/'>Borisov</Link>
+						</li>
+						<li>
+							<Link href='/'>Grodno</Link>
+						</li>
+						<li>
+							<Link href='/'>Brest</Link>
+						</li>
+					</ul>
+				</div>
+				<div>
 					<h3 className={styles.content_heading}>Menu</h3>
 					<ul className={styles.content_list}>
 						<li>
@@ -20,7 +37,7 @@ const Footer = () => {
 						</li>
 					</ul>
 				</div>
-				<div className='col-start-3'>
+				<div className='md:col-start-3'>
 					<h3 className={styles.content_heading}>About</h3>
 					<ul className={styles.content_list}>
 						<li>
