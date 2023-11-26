@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from '@/components/Section/menu-section/menu.module.scss';
 
-import LinkButton from '@/app/_components/UI/LinkButton';
+import LinkButton from '@/UI/LinkButton/LinkButton';
 
 const MenuCard = ({ type }) => {
 	return (
@@ -22,7 +22,8 @@ const MenuCard = ({ type }) => {
 
 				<span className='text-xl'>{type.price}$</span>
 			</h3>
-			<LinkButton>BUY</LinkButton>
+
+			{/* <LinkButton>BUY</LinkButton> */}
 		</div>
 	);
 };

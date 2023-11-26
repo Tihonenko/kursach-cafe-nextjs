@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 
-import LinkButton from '@/UI/LinkButton';
+import LinkButton from '@/UI/LinkButton/LinkButton';
 
 import styles from './menu.module.scss';
 
@@ -31,9 +31,12 @@ const Menu = () => {
 
 							<span className='text-xl'>{type.price}$</span>
 						</h3>
-						<LinkButton>BUY</LinkButton>
+						{/* <LinkButton>BUY</LinkButton> */}
 					</div>
 				))}
+				<div className='w-full md:col-span-2 md:w-1/3'>
+					<LinkButton href='menu'>MENU</LinkButton>
+				</div>
 			</div>
 		</section>
 	);

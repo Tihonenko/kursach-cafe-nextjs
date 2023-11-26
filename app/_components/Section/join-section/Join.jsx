@@ -1,10 +1,10 @@
 import React from 'react';
 
-import LinkButton from '../../UI/LinkButton';
+import LinkButton from '@/UI/LinkButton/LinkButton';
 
 const Join = () => {
 	return (
-		<section className='conteiner mt-52'>
+		<section className='container mt-52'>
 			<div className='grid grid-flow-row auto-rows-min place-items-center gap-5'>
 				<h3 className='heading-medium'>Join Today</h3>
 				<p className='max-w-[500px] text-center leading-7'>

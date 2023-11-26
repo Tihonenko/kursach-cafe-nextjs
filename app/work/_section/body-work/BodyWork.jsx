@@ -6,7 +6,7 @@ const BodyWork = () => {
 			<div className='mt-10 grid grid-flow-row auto-rows-min place-items-center gap-10'>
 				<div className='w-full md:w-2/3'>
 					<h3 className='heading-medium'>Join Our Team</h3>
-					<p className='mt-4'>
+					<p className='mt-8'>
 						Welcome to our world of flavor and hospitality! At Cosy, we
 						take pride in creating a unique experience for our guests
 						every day. Our success relies on our team members, and we are
@@ -16,8 +16,8 @@ const BodyWork = () => {
 				</div>
 				<div className='w-full md:w-2/3'>
 					<h3 className='heading-medium'>Why Choose Cosy?</h3>
-					<div className='grid grid-flow-row auto-rows-min gap-5'>
-						<div className='mt-4'>
+					<div className='grid grid-flow-row auto-rows-min gap-6'>
+						<div className='mt-6'>
 							<p className='font-bold'>Professional Development:</p>
 							<p>
 								We believe in investing in our employees. We provide
@@ -56,7 +56,7 @@ const BodyWork = () => {
 							list of current job openings
 						</p>
 					</Link>
-					<p className='mt-4'>
+					<p className='mt-6'>
 						If you are ready to join our team and share your skills and
 						passion, we would love to hear from you. Submit your
 						application today, and let's start creating unforgettable

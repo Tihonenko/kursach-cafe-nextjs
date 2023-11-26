@@ -3,6 +3,7 @@
 // Страница по дефолту, роут создается автоматически в папке app
 //если файл называется page.js
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -38,7 +39,7 @@ export default function Home() {
 	};
 
 	return (
-		<main>
+		<main className='mb-52'>
 			<section className='container pt-20'>
 				<h1 className='heading-large border-b-[2px] border-mainBlack text-left'>
 					MENU

@@ -9,8 +9,9 @@ import { ChevronDownIcon } from '@/components/Proxy/proxy-library';
 import useMediaQuery from '../hooks/useMediaQuery';
 
 import NavItem from './NavItem';
+import { burgerVariant, listVariant } from './anim';
 
-const navData = [
+export const navData = [
 	{
 		name: 'Home',
 		path: '',
@@ -24,75 +25,10 @@ const navData = [
 		path: 'about',
 	},
 	{
-		name: 'Careers',
-		path: 'work',
-	},
-	{
-		name: 'Gallery',
-		path: 'gallery',
+		name: 'Gift',
+		path: 'gift',
 	},
 ];
-
-const burgerVariant = {
-	hidden: {
-		transform: 'translateY(-100%)',
-		opacity: 1,
-		transition: {
-			type: 'spring',
-			duration: 0.37,
-			delay: 0.47,
-			stiffness: 47,
-		},
-	},
-	visible: {
-		transform: 'translateY(-5%)',
-		opacity: 1,
-		transition: {
-			type: 'spring',
-			duration: 0.3,
-			delay: 0.2,
-			stiffness: 47,
-		},
-	},
-	exit: {
-		transform: 'translateY(-100%)',
-		opacity: 0,
-	},
-};
-
-const listVariant = {
-	hidden: (custom) => ({
-		transform: 'translateX(-27%)',
-		opacity: 0,
-		transition: {
-			type: 'spring',
-			stiffness: 47,
-			duration: 0.2,
-			delay: custom * 0.1,
-		},
-	}),
-	visible: (custom) => ({
-		transform: 'translateX(0%)',
-		opacity: 1,
-		transition: {
-			type: 'spring',
-			stiffness: 47,
-			duration: 0.2,
-			delay: custom * 0.1,
-		},
-	}),
-	exit: (custom) => ({
-		transform: 'translateX(10%)',
-
-		opacity: 0,
-		transition: {
-			type: 'spring',
-			stiffness: 107,
-			duration: 0.1,
-			delay: (navData.length - custom - 1) * 0.07, //Переворачиваем порядок исчезновения элементов
-		},
-	}),
-};
 
 const Header = () => {
 	const isAboveSmallQuery = useMediaQuery('(min-width: 809px)');
@@ -104,7 +40,17 @@ const Header = () => {
 	};
 
 	return (
-		<header className='fixed z-10 w-full bg-secondaryBrown py-3'>
+		<motion.header
+			initial={{ y: -100 }}
+			animate={{ y: 0 }}
+			transition={{
+				type: 'spring',
+				duration: 0.37,
+				delay: 0.47,
+				stiffness: 47,
+			}}
+			className='fixed z-10 w-full bg-secondaryBrown py-3'
+		>
 			<div className='container grid grid-cols-4'>
 				<div className='col-start-1 '>
 					<Link href='/'>
@@ -113,7 +59,7 @@ const Header = () => {
 				</div>
 				{isAboveSmallQuery ? (
 					<nav className='col-span-3 hidden w-full place-self-center md:block'>
-						<ul className='grid grid-cols-5'>
+						<ul className='grid grid-cols-4'>
 							{navData.map((item, idx) => (
 								<li key={idx} className='text-right'>
 									<NavItem link={item} />
@@ -166,7 +112,7 @@ const Header = () => {
 					</>
 				)}
 			</div>
-		</header>
+		</motion.header>
 	);
 };
 
