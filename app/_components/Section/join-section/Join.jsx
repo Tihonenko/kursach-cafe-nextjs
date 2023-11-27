@@ -1,8 +1,13 @@
-import React from 'react';
+'use client';
 
-import LinkButton from '@/UI/LinkButton/LinkButton';
+import { useState } from 'react';
+
+import FormButton from '@/UI/FormButton/FormButton';
+import Modal from '@/UI/Modal/Modal';
 
 const Join = () => {
+	const [isActive, setIsActive] = useState(false);
+
 	return (
 		<section className='container mt-52'>
 			<div className='grid grid-flow-row auto-rows-min place-items-center gap-5'>
@@ -13,8 +18,15 @@ const Join = () => {
 					you'll ever have!
 				</p>
 				<div className='w-full uppercase md:w-1/3'>
-					<LinkButton href=''>Subscribe now</LinkButton>
+					<FormButton onClick={() => setIsActive((prev) => !prev)}>
+						Subscribe now
+					</FormButton>
 				</div>
+				<Modal
+					active={isActive}
+					setActive={setIsActive}
+					nameModal='Email'
+				/>
 			</div>
 		</section>
 	);

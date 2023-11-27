@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './card.module.scss';
 import FormButton from '@/app/_components/UI/FormButton/FormButton';
+import InputBorderB from '@/app/_components/UI/InputBorderB/InputBorderB';
 
 const CardBody = () => {
 	const gift = useSelector((state) => state.gift.selectedGift);
@@ -46,19 +47,15 @@ const CardBody = () => {
 						<div>
 							<p className='mt-2 px-3'>Recipient Name:</p>
 							<div className={styles.box_input}>
-								<input
+								<InputBorderB
 									type='text'
-									className={styles.input}
-									required='true'
 									placeholder='Recipient Name'
 								/>
 							</div>
 							<p className='mt-2 px-3'>Recipient Email:</p>
 							<div className={styles.box_input}>
-								<input
+								<InputBorderB
 									type='email'
-									className={styles.input}
-									required='true'
 									placeholder='Recipient Email'
 								/>
 							</div>
@@ -75,21 +72,11 @@ const CardBody = () => {
 						<div>
 							<p className='mt-2 px-3'>Sender Name:</p>
 							<div className={styles.box_input}>
-								<input
-									type='text'
-									className={styles.input}
-									required='true'
-									placeholder='Sender Name'
-								/>
+								<InputBorderB type='text' placeholder='Sender Name' />
 							</div>
 							<p className='mt-2 px-3'>Sender Email:</p>
 							<div className={styles.box_input}>
-								<input
-									type='email'
-									className={styles.input}
-									required='true'
-									placeholder='Sender Email'
-								/>
+								<InputBorderB type='email' placeholder='Sender Email' />
 							</div>
 						</div>
 					</div>

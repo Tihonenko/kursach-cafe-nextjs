@@ -1,8 +1,11 @@
 import styles from './button.module.scss';
 
-const FormButton = ({ children }) => {
+const FormButton = ({ children, ...props }) => {
 	return (
-		<button className={`transition-settings ${styles.form_button}`}>
+		<button
+			{...props}
+			className={`transition-settings ${styles.form_button}`}
+		>
 			{children}
 		</button>
 	);
